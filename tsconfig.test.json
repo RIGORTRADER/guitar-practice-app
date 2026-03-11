@@ -1,0 +1,26 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noEmit": false,
+    "outDir": ".test-dist",
+    "rootDir": ".",
+    "incremental": false,
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "isolatedModules": false,
+    "jsx": "react-jsx"
+  },
+  "include": [
+    "src/app/page.test.tsx",
+    "src/data/tasks.ts",
+    "src/lib/practice-options.ts",
+    "src/lib/recommendation.ts",
+    "src/lib/recommendation.test.ts",
+    "src/lib/sessions.ts",
+    "src/lib/sessions.test.ts",
+    "src/types/**/*.d.ts"
+  ]
+}

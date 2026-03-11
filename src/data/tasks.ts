@@ -236,6 +236,42 @@ export const TASKS_BY_FOCUS: Record<string, PlanItem[]> = {
       instructions:
         "Sabit pena akışı içinde aksanı farklı notalara kaydır ve düzeni koru.",
     },
+    {
+      id: 113,
+      title: "Akor geçiş sessizliği",
+      category: "Teknik",
+      minutes: 6,
+      difficulty: "Kolay",
+      instructions:
+        "İki basit akor arasında geçerken boş tellerin istemsiz çalmasını engelle.",
+    },
+    {
+      id: 114,
+      title: "Comping pena tutarlılığı",
+      category: "Teknik",
+      minutes: 7,
+      difficulty: "Orta",
+      instructions:
+        "Sabit 8’lik vuruşta her tel temasının hacmini eşitle ve groove’u düşürme.",
+    },
+    {
+      id: 115,
+      title: "Çift ses bend dengesi",
+      category: "Teknik",
+      minutes: 8,
+      difficulty: "Zor",
+      instructions:
+        "İki notalı bend cümlelerinde üst ses intonasyonunu korurken alt sesi temiz tut.",
+    },
+    {
+      id: 116,
+      title: "Slide ile akor bağlantısı",
+      category: "Teknik",
+      minutes: 7,
+      difficulty: "Orta",
+      instructions:
+        "Yakın iki akor formunu slide girişlerle bağla, geçişte zamanlamayı bozma.",
+    },
   ],
 
   Teori: [
@@ -464,6 +500,96 @@ export const TASKS_BY_FOCUS: Record<string, PlanItem[]> = {
       instructions:
         "Hedef notaya yarım ses üstten ve alttan yaklaşmanın gerilim etkisini değerlendir.",
     },
+    {
+      id: 117,
+      title: "Tek tel nota bulma",
+      category: "Teori",
+      minutes: 6,
+      difficulty: "Kolay",
+      instructions:
+        "Tek bir tel seç ve verilen notaları pozisyon atlamadan en yakın yerde bul.",
+    },
+    {
+      id: 118,
+      title: "Oktav eşleme rotaları",
+      category: "Teori",
+      minutes: 6,
+      difficulty: "Kolay",
+      instructions:
+        "Bir notayı farklı tel setlerinde oktav ilişkileriyle hızlıca eşleştir.",
+    },
+    {
+      id: 119,
+      title: "Aynı notayı üç bölgede görme",
+      category: "Teori",
+      minutes: 7,
+      difficulty: "Orta",
+      instructions:
+        "Aynı perde adını sapın alt, orta ve üst bölgesinde gecikmeden bul.",
+    },
+    {
+      id: 120,
+      title: "String set triad taraması",
+      category: "Teori",
+      minutes: 7,
+      difficulty: "Orta",
+      instructions:
+        "Üç komşu tel grubunda majör ve minör triad şekillerini sırayla çıkar.",
+    },
+    {
+      id: 121,
+      title: "Dereceyi söyle çal",
+      category: "Teori",
+      minutes: 7,
+      difficulty: "Orta",
+      instructions:
+        "Bir kök belirle, çaldığın her notanın derece adını sesli söyle.",
+    },
+    {
+      id: 122,
+      title: "Duyup bul tek nota",
+      category: "Teori",
+      minutes: 6,
+      difficulty: "Kolay",
+      instructions:
+        "Rastgele çaldığın tek notayı dinleyip aynı sesi başka telde yakala.",
+    },
+    {
+      id: 123,
+      title: "Kökten akor tonu bulma",
+      category: "Teori",
+      minutes: 8,
+      difficulty: "Orta",
+      instructions:
+        "Bir akor adı seç, kökten başlayıp 3 ve 5 seslerini yakın bölgede yerleştir.",
+    },
+    {
+      id: 124,
+      title: "Pozisyonlar arası triad bağlama",
+      category: "Teori",
+      minutes: 8,
+      difficulty: "Zor",
+      instructions:
+        "Aynı triadi iki farklı tel setinde bağlayıp aradaki ortak sesleri koru.",
+    },
+    {
+      id: 125,
+      title: "Söyle sonra çal",
+      category: "Teori",
+      minutes: 6,
+      difficulty: "Kolay",
+      instructions:
+        "Kısa bir iki notalı fikir mırıldan, sonra aynı aralığı gitarda bul.",
+    },
+    {
+      id: 126,
+      title: "İniş notasını önceden duyma",
+      category: "Teori",
+      minutes: 7,
+      difficulty: "Orta",
+      instructions:
+        "Bir akor değişmeden önce ineceğin chord tone’u zihninde duyup sonra çal.",
+    },
   ],
 
   Ritim: [
@@ -646,6 +772,78 @@ export const TASKS_BY_FOCUS: Record<string, PlanItem[]> = {
       difficulty: "Orta",
       instructions:
         "Aynı tempoda 8’lik, 16’lık ve üçleme alt bölümleri arasında geçiş yap.",
+    },
+    {
+      id: 127,
+      title: "Düz 8’lik strumming dengesi",
+      category: "Ritim",
+      minutes: 6,
+      difficulty: "Kolay",
+      instructions:
+        "Açık akorlarla sabit 8’lik çal, down-up akışında vuruş yüksekliğini eşitle.",
+    },
+    {
+      id: 128,
+      title: "Akor değişimi zamanlama disiplini",
+      category: "Ritim",
+      minutes: 7,
+      difficulty: "Kolay",
+      instructions:
+        "İki akor arasında sadece doğru vuruşta geç ve eldeki aceleyi azalt.",
+    },
+    {
+      id: 129,
+      title: "Off-beat comping yerleşimi",
+      category: "Ritim",
+      minutes: 7,
+      difficulty: "Orta",
+      instructions:
+        "Vuruşların arasına yerleşen kısa comping darbeleriyle groove kur.",
+    },
+    {
+      id: 130,
+      title: "Susturmalı funk comping",
+      category: "Ritim",
+      minutes: 8,
+      difficulty: "Orta",
+      instructions:
+        "Kısa akor vuruşlarıyla sol el susturmasını birleştir, net başlatıp net kes.",
+    },
+    {
+      id: 131,
+      title: "İki akorlu groove taşıma",
+      category: "Ritim",
+      minutes: 7,
+      difficulty: "Kolay",
+      instructions:
+        "Aynı ritmik kalıbı iki akor arasında bozmadan sürdür.",
+    },
+    {
+      id: 132,
+      title: "Dinamik katmanlı strumming",
+      category: "Ritim",
+      minutes: 7,
+      difficulty: "Orta",
+      instructions:
+        "Ölçü içinde bazı vuruşları geri çekip bazılarını öne çıkararak akışı renklendir.",
+    },
+    {
+      id: 133,
+      title: "Anticipation girişleri",
+      category: "Ritim",
+      minutes: 8,
+      difficulty: "Zor",
+      instructions:
+        "Akoru bir sonraki güçlü zamandan hemen önce getirip zaman hissini kaybetme.",
+    },
+    {
+      id: 134,
+      title: "Dur-kalk ritim gitarı",
+      category: "Ritim",
+      minutes: 8,
+      difficulty: "Orta",
+      instructions:
+        "Sürekli akış yerine kısa duruşlarla çalışan bir comping kalıbı oluştur.",
     },
   ],
 
@@ -919,6 +1117,96 @@ export const TASKS_BY_FOCUS: Record<string, PlanItem[]> = {
       difficulty: "Zor",
       instructions:
         "Gerilimli line’ları hangi notalarda çözdüğünde daha ikna edici duyulduğunu araştır.",
+    },
+    {
+      id: 135,
+      title: "Söyle ve çal cevap cümlesi",
+      category: "Doğaçlama",
+      minutes: 6,
+      difficulty: "Kolay",
+      instructions:
+        "Kısa bir cevap cümlesini önce mırıldan, sonra aynı konturu gitarda bul.",
+    },
+    {
+      id: 136,
+      title: "Kopyalanan lick varyasyonu",
+      category: "Doğaçlama",
+      minutes: 7,
+      difficulty: "Orta",
+      instructions:
+        "Bildiğin bir lick’i ritmini koruyup son iki notasını değiştirerek uyarl.",
+    },
+    {
+      id: 137,
+      title: "Rifften solo cümlesi çıkarma",
+      category: "Doğaçlama",
+      minutes: 7,
+      difficulty: "Orta",
+      instructions:
+        "Çaldığın riffin ritmik iskeletini kullanıp üstüne tek notalı bir lead cümlesi kur.",
+    },
+    {
+      id: 138,
+      title: "Akor yürüyüşüne iniş notaları",
+      category: "Doğaçlama",
+      minutes: 8,
+      difficulty: "Orta",
+      instructions:
+        "Basit bir progresyonda her ölçüyü seçilmiş bir chord tone üzerinde bitir.",
+    },
+    {
+      id: 139,
+      title: "Melodiyi başka pozisyona taşıma",
+      category: "Doğaçlama",
+      minutes: 6,
+      difficulty: "Kolay",
+      instructions:
+        "Kısa bir melodiyi aynı ritmi koruyarak sapın başka bir bölgesinde tekrar çal.",
+    },
+    {
+      id: 140,
+      title: "Şarkı cümlesini cevaplama",
+      category: "Doğaçlama",
+      minutes: 7,
+      difficulty: "Orta",
+      instructions:
+        "Varsaydığın bir vokal cümlesine gitarla boşluk bırakan kısa bir cevap ver.",
+    },
+    {
+      id: 141,
+      title: "Mikro transkripsiyon uyarlaması",
+      category: "Doğaçlama",
+      minutes: 8,
+      difficulty: "Zor",
+      instructions:
+        "Kısa bir duyduğun fraseyi çıkarıp tonal merkeze uydurarak yeniden çal.",
+    },
+    {
+      id: 142,
+      title: "Ritmik kopya notasal fark",
+      category: "Doğaçlama",
+      minutes: 7,
+      difficulty: "Orta",
+      instructions:
+        "Hazır bir ritmik cümleyi aynen koru ama notaları yeni hedef tonlara taşı.",
+    },
+    {
+      id: 143,
+      title: "Mini repertuvar fragmanı",
+      category: "Doğaçlama",
+      minutes: 7,
+      difficulty: "Kolay",
+      instructions:
+        "Sevdiğin bir parçadan iki ölçülük fikir çıkar, his ve artikülasyonu koruyarak çal.",
+    },
+    {
+      id: 144,
+      title: "Tekniği cümleye taşıma",
+      category: "Doğaçlama",
+      minutes: 8,
+      difficulty: "Zor",
+      instructions:
+        "Slide, bend veya legato öğesini sadece gösteriş değil ifade amacıyla bir cümlede kullan.",
     },
   ],
 

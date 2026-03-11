@@ -15,22 +15,60 @@ export function generatePlan(params: {
   focus: string;
   duration: number;
   difficulty: Difficulty;
+  lastCategory?: string | null;
 }): PlanItem[] {
-  const { focus, duration, difficulty } = params;
-
-  const selectedPool = TASKS_BY_FOCUS[focus] ?? TASKS_BY_FOCUS["Kararsızım"];
-
-  const filteredPool = selectedPool.filter(
-    (item) => item.difficulty === difficulty
-  );
-
-  const finalPool = filteredPool.length > 0 ? filteredPool : selectedPool;
+  const { focus, duration, difficulty, lastCategory } = params;
 
   let itemCount = 2;
   if (duration >= 15) itemCount = 3;
   if (duration >= 30) itemCount = 4;
 
-  const shuffled = shuffleArray(finalPool);
+  if (focus === "Kararsızım") {
+    const allMixedPool = [
+      ...TASKS_BY_FOCUS["Teknik"],
+      ...TASKS_BY_FOCUS["Teori"],
+      ...TASKS_BY_FOCUS["Ritim"],
+      ...TASKS_BY_FOCUS["Doğaçlama"],
+    ];
 
-  return shuffled.slice(0, itemCount);
+    const sameDifficulty = allMixedPool.filter(
+      (item) => item.difficulty === difficulty
+    );
+
+    let pool = sameDifficulty.length > 0 ? sameDifficulty : allMixedPool;
+
+    if (lastCategory) {
+      const withoutLastCategory = pool.filter(
+        (item) => item.category !== lastCategory
+      );
+
+      if (withoutLastCategory.length >= itemCount) {
+        pool = withoutLastCategory;
+      }
+    }
+
+    return shuffleArray(pool).slice(0, itemCount);
+  }
+
+  const selectedPool = TASKS_BY_FOCUS[focus] ?? TASKS_BY_FOCUS["Kararsızım"];
+
+  const sameDifficulty = selectedPool.filter(
+    (item) => item.difficulty === difficulty
+  );
+
+  let pool: PlanItem[] = [];
+
+  if (sameDifficulty.length >= itemCount) {
+    pool = shuffleArray(sameDifficulty).slice(0, itemCount);
+  } else {
+    const remaining = selectedPool.filter(
+      (item) => item.difficulty !== difficulty
+    );
+    pool = [
+      ...shuffleArray(sameDifficulty),
+      ...shuffleArray(remaining).slice(0, itemCount - sameDifficulty.length),
+    ];
+  }
+
+  return shuffleArray(pool);
 }
