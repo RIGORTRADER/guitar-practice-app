@@ -1,6 +1,18 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+const themeInitScript = `
+(() => {
+  try {
+    const savedTheme = window.localStorage.getItem("guitar-practice-theme");
+    const theme = savedTheme === "light" || savedTheme === "dark" ? savedTheme : "dark";
+    document.documentElement.dataset.theme = theme;
+  } catch {
+    document.documentElement.dataset.theme = "dark";
+  }
+})();
+`;
+
 export const metadata: Metadata = {
   title: "Bugün Gitarda Ne Çalışsam?",
   description:
@@ -28,8 +40,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr">
-      <body className="antialiased">{children}</body>
+    <html lang="tr" data-theme="dark" suppressHydrationWarning>
+      <body className="antialiased">
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+        {children}
+      </body>
     </html>
   );
 }

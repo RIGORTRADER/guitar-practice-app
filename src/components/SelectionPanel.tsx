@@ -30,51 +30,53 @@ export function SelectionPanel({
   onContinueLast,
 }: SelectionPanelProps) {
   return (
-    <section className="rounded-[2rem] border border-zinc-800 bg-zinc-900 p-6">
+    <section className="app-card rounded-[2rem] p-6">
       <div className="space-y-5">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
           <div className="space-y-2">
-            <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">
+            <p className="app-text-muted text-[11px] uppercase tracking-[0.2em]">
               Plan ayarları
             </p>
-            <h2 className="text-xl font-medium text-white">
-              Bugünkü odağını seç
+            <h2 className="text-2xl font-semibold tracking-tight text-[var(--text-primary)]">
+              Practice workspace
             </h2>
-            <p className="max-w-2xl text-sm leading-6 text-zinc-400">
-              Hızlı başlama seçenekleriyle aynı akışın içindesin; ister preset
-              seç ister ayarları elle kur.
+            <p className="app-text-muted max-w-2xl text-sm leading-6">
+              Bir preset seç ya da ayarları elle kur. Amaç hızlıca plan üretip
+              çalmaya başlamak.
             </p>
           </div>
 
-          <div className="rounded-2xl border border-zinc-800 bg-zinc-950 px-4 py-3 text-sm">
-            <p className="text-zinc-500">Şu anki seçim</p>
-            <div className="mt-3 flex flex-wrap gap-2 text-xs text-zinc-200">
-              <span className="rounded-full border border-zinc-700 px-3 py-1">
+          <div className="app-surface-muted rounded-2xl px-4 py-3 text-sm">
+            <p className="app-text-muted">Şu anki seçim</p>
+            <div className="mt-3 flex flex-wrap gap-2 text-xs">
+              <span className="app-pill-neutral rounded-full px-3 py-1">
                 {focus}
               </span>
-              <span className="rounded-full border border-zinc-700 px-3 py-1">
+              <span className="app-pill-neutral rounded-full px-3 py-1">
                 {duration} dk
               </span>
-              <span className="rounded-full border border-zinc-700 px-3 py-1">
+              <span className="app-pill-neutral rounded-full px-3 py-1">
                 {difficulty}
               </span>
             </div>
           </div>
         </div>
 
-        <div className="rounded-[1.5rem] border border-zinc-800 bg-zinc-950/80 p-4">
+        <div className="app-surface-muted rounded-[1.5rem] p-4">
           <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <p className="text-sm font-medium text-white">Hızlı başla</p>
-              <p className="mt-1 text-sm text-zinc-500">
-                Uzun düşünmeden gir, istersen ardından seçimleri ince ayarla.
+              <p className="text-sm font-medium text-[var(--text-primary)]">
+                Quick Start
+              </p>
+              <p className="app-text-muted mt-1 text-sm">
+                En kısa yol. İstersen sonra elle ince ayar yap.
               </p>
             </div>
 
             {lastSessionLabel ? (
               <button
                 onClick={onContinueLast}
-                className="rounded-xl border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition hover:border-zinc-500 hover:text-white"
+                className="app-btn-secondary rounded-xl px-3 py-2 text-xs font-medium transition hover:border-[var(--border-strong)]"
               >
                 Son planı sürdür: {lastSessionLabel}
               </button>
@@ -86,10 +88,12 @@ export function SelectionPanel({
               <button
                 key={preset.label}
                 onClick={() => onQuickStart(preset)}
-                className="rounded-2xl border border-zinc-800 bg-zinc-900/80 px-4 py-3 text-left transition hover:border-zinc-600 hover:bg-zinc-900"
+                className="rounded-2xl border border-[var(--border-soft)] bg-[var(--surface-panel)] px-4 py-3 text-left transition hover:border-[var(--border-strong)]"
               >
-                <p className="text-sm font-medium text-white">{preset.label}</p>
-                <p className="mt-1 text-xs leading-5 text-zinc-500">
+                <p className="text-sm font-medium text-[var(--text-primary)]">
+                  {preset.label}
+                </p>
+                <p className="app-text-muted mt-1 text-xs leading-5">
                   {preset.focus} • {preset.duration} dk • {preset.difficulty}
                 </p>
               </button>
@@ -100,16 +104,18 @@ export function SelectionPanel({
 
       <div className="mt-6 space-y-6">
         <div>
-          <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">
+          <p className="app-text-muted text-[11px] uppercase tracking-[0.2em]">
             Manuel seçim
           </p>
-          <p className="mt-2 text-sm leading-6 text-zinc-400">
+          <p className="app-text-muted mt-2 text-sm leading-6">
             Kendi odağını doğrudan kurmak istersen aşağıdaki seçimlerle devam et.
           </p>
         </div>
 
         <div>
-          <p className="mb-3 text-sm font-medium text-zinc-300">Odak</p>
+          <p className="mb-3 text-sm font-medium text-[var(--text-secondary)]">
+            Odak
+          </p>
           <div className="flex flex-wrap gap-2">
             {FOCUSES.map((item) => (
               <button
@@ -117,8 +123,8 @@ export function SelectionPanel({
                 onClick={() => onFocusChange(item)}
                 className={`rounded-2xl px-4 py-2.5 text-sm transition ${
                   focus === item
-                    ? "border border-white bg-white text-black shadow-[0_10px_30px_rgba(255,255,255,0.08)]"
-                    : "border border-zinc-700 bg-zinc-950 text-zinc-200 hover:border-zinc-500 hover:text-white"
+                    ? "border border-[var(--accent-cool-border)] bg-[var(--accent-cool-bg)] text-[var(--accent-cool-text)] shadow-[var(--shadow-soft)]"
+                    : "app-btn-secondary hover:border-[var(--border-strong)]"
                 }`}
               >
                 {item}
@@ -129,7 +135,9 @@ export function SelectionPanel({
 
         <div className="grid gap-6 lg:grid-cols-2">
           <div>
-            <p className="mb-3 text-sm font-medium text-zinc-300">Süre</p>
+            <p className="mb-3 text-sm font-medium text-[var(--text-secondary)]">
+              Süre
+            </p>
             <div className="flex flex-wrap gap-2">
               {DURATIONS.map((item) => (
                 <button
@@ -137,8 +145,8 @@ export function SelectionPanel({
                   onClick={() => onDurationChange(item)}
                   className={`rounded-2xl px-4 py-2.5 text-sm transition ${
                     duration === item
-                      ? "border border-white bg-white text-black shadow-[0_10px_30px_rgba(255,255,255,0.08)]"
-                      : "border border-zinc-700 bg-zinc-950 text-zinc-200 hover:border-zinc-500 hover:text-white"
+                      ? "border border-[var(--accent-warm-border)] bg-[var(--accent-warm-bg)] text-[var(--accent-warm-text)] shadow-[var(--shadow-soft)]"
+                      : "app-btn-secondary hover:border-[var(--border-strong)]"
                   }`}
                 >
                   {item} dk
@@ -148,7 +156,9 @@ export function SelectionPanel({
           </div>
 
           <div>
-            <p className="mb-3 text-sm font-medium text-zinc-300">Zorluk</p>
+            <p className="mb-3 text-sm font-medium text-[var(--text-secondary)]">
+              Zorluk
+            </p>
             <div className="flex flex-wrap gap-2">
               {DIFFICULTIES.map((item) => (
                 <button
@@ -156,8 +166,8 @@ export function SelectionPanel({
                   onClick={() => onDifficultyChange(item)}
                   className={`rounded-2xl px-4 py-2.5 text-sm transition ${
                     difficulty === item
-                      ? "border border-white bg-white text-black shadow-[0_10px_30px_rgba(255,255,255,0.08)]"
-                      : "border border-zinc-700 bg-zinc-950 text-zinc-200 hover:border-zinc-500 hover:text-white"
+                      ? "border border-[var(--accent-plum-border)] bg-[var(--accent-plum-bg)] text-[var(--accent-plum-text)] shadow-[var(--shadow-soft)]"
+                      : "app-btn-secondary hover:border-[var(--border-strong)]"
                   }`}
                 >
                   {item}
@@ -168,17 +178,19 @@ export function SelectionPanel({
         </div>
       </div>
 
-      <div className="mt-6 flex flex-col gap-3 rounded-2xl border border-zinc-800 bg-zinc-950 p-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="app-surface-muted mt-6 flex flex-col gap-3 rounded-2xl p-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <p className="text-sm font-medium text-white">Mini plan oluştur</p>
-          <p className="mt-1 text-sm text-zinc-400">
+          <p className="text-sm font-medium text-[var(--text-primary)]">
+            Mini plan oluştur
+          </p>
+          <p className="app-text-muted mt-1 text-sm">
             Seçimlerini hemen çalınabilir bir oturuma dönüştür.
           </p>
         </div>
 
         <button
           onClick={onGeneratePlan}
-          className="rounded-2xl bg-white px-5 py-3 text-sm font-medium text-black transition hover:bg-zinc-200"
+          className="app-btn-primary rounded-2xl px-5 py-3 text-sm font-medium transition hover:brightness-105"
         >
           Mini plan oluştur
         </button>

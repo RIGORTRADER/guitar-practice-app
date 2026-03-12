@@ -1,13 +1,136 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+:root,
+:root[data-theme="dark"] {
+  --background: #13100e;
+  --foreground: #f3eadf;
   --font-sans:
     "SF Pro Text", "SF Pro Display", "Segoe UI", "Helvetica Neue", Helvetica,
     Arial, sans-serif;
   --font-mono:
     "SFMono-Regular", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+
+  --app-bg: #13100e;
+  --app-bg-image:
+    radial-gradient(circle at top left, rgba(143, 103, 77, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(66, 101, 88, 0.15), transparent 24%),
+    radial-gradient(circle at 20% 80%, rgba(112, 57, 52, 0.15), transparent 24%),
+    linear-gradient(180deg, rgba(26, 20, 17, 0.96), rgba(18, 14, 12, 1));
+
+  --text-primary: #f3eadf;
+  --text-secondary: #e5d7ca;
+  --text-muted: #b8a89a;
+  --text-soft: #928375;
+
+  --surface-card: linear-gradient(180deg, rgba(34, 26, 22, 0.96), rgba(26, 20, 17, 0.94));
+  --surface-card-soft: linear-gradient(180deg, rgba(39, 30, 25, 0.94), rgba(30, 23, 19, 0.92));
+  --surface-muted: rgba(28, 22, 19, 0.92);
+  --surface-panel: rgba(24, 19, 16, 0.9);
+  --surface-toolbar: linear-gradient(135deg, rgba(33, 25, 21, 0.92), rgba(24, 19, 16, 0.88));
+  --surface-input: rgba(25, 20, 17, 0.95);
+
+  --border-soft: #3a2d25;
+  --border-strong: #5a4439;
+  --input-border: #514036;
+
+  --button-primary-start: #8b5a44;
+  --button-primary-end: #5f3d31;
+  --button-primary-text: #fff7f1;
+  --button-secondary-bg: rgba(32, 25, 21, 0.92);
+  --button-secondary-border: #4d3c31;
+  --button-secondary-text: #e7dbd0;
+
+  --accent-neutral-bg: rgba(44, 35, 29, 0.94);
+  --accent-neutral-border: #4b3d34;
+  --accent-neutral-text: #e9ddd0;
+
+  --accent-warm-bg: rgba(72, 45, 31, 0.94);
+  --accent-warm-border: #7d5840;
+  --accent-warm-text: #f6d6bf;
+
+  --accent-cool-bg: rgba(31, 49, 42, 0.94);
+  --accent-cool-border: #496557;
+  --accent-cool-text: #cde0d6;
+
+  --accent-plum-bg: rgba(48, 36, 53, 0.94);
+  --accent-plum-border: #67506f;
+  --accent-plum-text: #ddcce2;
+
+  --tool-shell: linear-gradient(180deg, #120f0d, #191411 52%, #120f0d);
+  --tool-panel: linear-gradient(180deg, rgba(27, 21, 18, 0.98), rgba(21, 17, 14, 0.96));
+  --tool-panel-soft: rgba(22, 18, 15, 0.9);
+  --tool-border: #3b2d23;
+  --tool-border-soft: #2f251f;
+  --tool-input-bg: rgba(34, 28, 24, 0.96);
+  --tool-input-border: #514036;
+  --tool-text: #f4ece2;
+  --tool-muted: #a89b8f;
+
+  --shadow-card: 0 18px 50px rgba(0, 0, 0, 0.22);
+  --shadow-soft: 0 14px 40px rgba(0, 0, 0, 0.16);
+}
+
+:root[data-theme="light"] {
+  --background: #f5efe3;
+  --foreground: #2a221d;
+  --app-bg: #f5efe3;
+  --app-bg-image:
+    radial-gradient(circle at top left, rgba(255, 247, 237, 0.95), transparent 28%),
+    radial-gradient(circle at top right, rgba(107, 127, 94, 0.12), transparent 24%),
+    radial-gradient(circle at 20% 80%, rgba(142, 63, 47, 0.09), transparent 24%),
+    linear-gradient(180deg, rgba(255, 252, 246, 0.82), rgba(245, 239, 227, 0.96));
+
+  --text-primary: #2a221d;
+  --text-secondary: #3b3029;
+  --text-muted: #7d6c5f;
+  --text-soft: #98867a;
+
+  --surface-card: linear-gradient(180deg, rgba(255, 251, 246, 0.96), rgba(245, 236, 226, 0.94));
+  --surface-card-soft: linear-gradient(180deg, rgba(255, 252, 247, 0.96), rgba(242, 233, 221, 0.92));
+  --surface-muted: rgba(255, 250, 244, 0.88);
+  --surface-panel: rgba(249, 241, 232, 0.84);
+  --surface-toolbar: linear-gradient(135deg, rgba(255, 252, 246, 0.92), rgba(242, 234, 225, 0.88));
+  --surface-input: rgba(255, 255, 255, 0.9);
+
+  --border-soft: #dccab7;
+  --border-strong: #b48c73;
+  --input-border: #cfb79d;
+
+  --button-primary-start: #5b3a31;
+  --button-primary-end: #725147;
+  --button-primary-text: #fdf7f3;
+  --button-secondary-bg: rgba(255, 255, 255, 0.86);
+  --button-secondary-border: #d2bdab;
+  --button-secondary-text: #5a473d;
+
+  --accent-neutral-bg: rgba(255, 255, 255, 0.78);
+  --accent-neutral-border: #e0d0bf;
+  --accent-neutral-text: #4d3f36;
+
+  --accent-warm-bg: #f6ead6;
+  --accent-warm-border: #d7c5b2;
+  --accent-warm-text: #7a553f;
+
+  --accent-cool-bg: #edf3ea;
+  --accent-cool-border: #c7d1bf;
+  --accent-cool-text: #476052;
+
+  --accent-plum-bg: #f1ebf1;
+  --accent-plum-border: #d8c6d8;
+  --accent-plum-text: #6b5168;
+
+  --tool-shell: linear-gradient(180deg, #181310, #1f1814 52%, #17120f);
+  --tool-panel: linear-gradient(180deg, rgba(28, 23, 20, 0.98), rgba(20, 17, 15, 0.96));
+  --tool-panel-soft: rgba(26, 21, 18, 0.9);
+  --tool-border: #3b2d23;
+  --tool-border-soft: #2f251f;
+  --tool-input-bg: rgba(34, 28, 24, 0.96);
+  --tool-input-border: #514036;
+  --tool-text: #f4ece2;
+  --tool-muted: #a89b8f;
+
+  --shadow-card: 0 18px 50px rgba(90, 68, 53, 0.09);
+  --shadow-soft: 0 14px 40px rgba(90, 68, 53, 0.07);
 }
 
 @theme inline {
@@ -17,21 +140,163 @@
   --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 html {
   color-scheme: dark;
 }
 
+html[data-theme="light"] {
+  color-scheme: light;
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+}
+
 body {
-  background: var(--background);
-  color: var(--foreground);
+  background: var(--app-bg);
+  color: var(--text-primary);
   font-family: var(--font-sans);
   min-height: 100vh;
   text-rendering: optimizeLegibility;
+  background-image: var(--app-bg-image);
+}
+
+.app-card {
+  border: 1px solid var(--border-soft);
+  background: var(--surface-card);
+  box-shadow: var(--shadow-card);
+}
+
+.app-card-soft {
+  border: 1px solid var(--border-soft);
+  background: var(--surface-card-soft);
+  box-shadow: var(--shadow-card);
+}
+
+.app-surface-muted {
+  border: 1px solid var(--border-soft);
+  background: var(--surface-muted);
+}
+
+.app-toolbar {
+  border: 1px solid var(--border-soft);
+  background: var(--surface-toolbar);
+  box-shadow: var(--shadow-soft);
+}
+
+.app-text-muted {
+  color: var(--text-muted);
+}
+
+.app-text-soft {
+  color: var(--text-soft);
+}
+
+.app-btn-primary {
+  background: linear-gradient(135deg, var(--button-primary-start), var(--button-primary-end));
+  color: var(--button-primary-text);
+}
+
+.app-btn-secondary {
+  border: 1px solid var(--button-secondary-border);
+  background: var(--button-secondary-bg);
+  color: var(--button-secondary-text);
+}
+
+.app-btn-secondary:hover {
+  border-color: var(--border-strong);
+}
+
+.app-input {
+  border: 1px solid var(--input-border);
+  background: var(--surface-input);
+  color: var(--text-primary);
+}
+
+.app-input:focus {
+  border-color: var(--border-strong);
+}
+
+.app-pill-neutral {
+  border: 1px solid var(--accent-neutral-border);
+  background: var(--accent-neutral-bg);
+  color: var(--accent-neutral-text);
+}
+
+.app-pill-warm {
+  border: 1px solid var(--accent-warm-border);
+  background: var(--accent-warm-bg);
+  color: var(--accent-warm-text);
+}
+
+.app-pill-cool {
+  border: 1px solid var(--accent-cool-border);
+  background: var(--accent-cool-bg);
+  color: var(--accent-cool-text);
+}
+
+.app-pill-plum {
+  border: 1px solid var(--accent-plum-border);
+  background: var(--accent-plum-bg);
+  color: var(--accent-plum-text);
+}
+
+.app-sidebar-item {
+  border: 1px solid transparent;
+  color: var(--text-secondary);
+}
+
+.app-sidebar-item:hover {
+  background: var(--surface-panel);
+}
+
+.app-sidebar-item-active {
+  border: 1px solid var(--border-strong);
+  background: linear-gradient(135deg, var(--button-primary-start), #4e6558);
+  color: var(--button-primary-text);
+  box-shadow: var(--shadow-soft);
+}
+
+.app-tool-shell {
+  border: 1px solid var(--tool-border);
+  background: var(--tool-shell);
+  box-shadow: var(--shadow-card);
+}
+
+.app-tool-panel {
+  border: 1px solid var(--tool-border);
+  background: var(--tool-panel);
+}
+
+.app-tool-panel-soft {
+  border: 1px solid var(--tool-border-soft);
+  background: var(--tool-panel-soft);
+}
+
+.app-tool-input {
+  border: 1px solid var(--tool-input-border);
+  background: var(--tool-input-bg);
+  color: var(--tool-text);
+}
+
+.app-tool-input:focus {
+  border-color: #9c7558;
+}
+
+.app-tool-btn {
+  border: 1px solid var(--tool-input-border);
+  background: rgba(33, 27, 23, 0.92);
+  color: var(--tool-text);
+}
+
+.app-tool-btn:hover {
+  border-color: #735845;
+}
+
+.app-tool-text {
+  color: var(--tool-text);
+}
+
+.app-tool-text-muted {
+  color: var(--tool-muted);
 }

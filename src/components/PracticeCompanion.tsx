@@ -25,62 +25,69 @@ export function PracticeCompanion({
   onContinueLast,
 }: PracticeCompanionProps) {
   return (
-    <section className="relative overflow-hidden rounded-[2rem] border border-zinc-800 bg-zinc-900 p-5 sm:p-6">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(244,244,245,0.12),transparent_38%),linear-gradient(135deg,rgba(39,39,42,0.92),rgba(24,24,27,0.98))]" />
-      <div className="relative grid gap-5 lg:grid-cols-[1.15fr_0.85fr] lg:items-end">
+    <section className="app-card rounded-[2rem] p-6">
+      <div className="grid gap-5 lg:grid-cols-[1.05fr_0.95fr]">
         <div className="space-y-4">
-          <div className="flex flex-wrap items-center gap-2 text-xs text-zinc-300">
-            <span className="rounded-full border border-zinc-700 bg-zinc-950/60 px-3 py-1">
-              Practice Companion
+          <div className="flex flex-wrap items-center gap-2 text-xs">
+            <span className="app-pill-neutral rounded-full px-3 py-1">
+              Today
             </span>
-            <span className="rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3 py-1 text-emerald-200">
+            <span className="app-pill-warm rounded-full px-3 py-1">
               {todayLabel}
             </span>
           </div>
 
           <div className="space-y-2">
-            <h1 className="max-w-2xl text-2xl font-semibold tracking-tight text-white sm:text-3xl">
-              Bugün gitarda ne çalışsam?
-            </h1>
-            <p className="max-w-xl text-sm leading-6 text-zinc-300">
-              Hızlı karar vermek, oturum boyunca yönünü korumak ve son günlerde
-              nereye ağırlık verdiğini sakin biçimde görmek için.
+            <h2 className="max-w-2xl text-2xl font-semibold tracking-tight text-[var(--text-primary)]">
+              Çalışmaya başlamadan önce kısa bir yön
+            </h2>
+            <p className="app-text-muted max-w-xl text-sm leading-6">
+              Hangi alana gireceğini hızlıca netleştir ve oturum boyunca rotanı
+              koru.
             </p>
           </div>
-        </div>
 
-        <div className="rounded-[1.5rem] border border-zinc-800/80 bg-zinc-950/60 p-4">
-          <div className="flex flex-wrap items-start justify-between gap-3">
-            <div>
-              <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">
-                Bugün
-              </p>
-              <p className="mt-2 text-sm leading-6 text-zinc-300">
-                {todaySummary}
-              </p>
-            </div>
-
-            {lastSession ? (
-              <button
-                onClick={onContinueLast}
-                className="rounded-xl border border-zinc-700 px-3 py-2 text-xs font-medium text-zinc-200 transition hover:border-zinc-500 hover:text-white"
-              >
-                Son oturumdan başla
-              </button>
-            ) : null}
-          </div>
-
-          <div className="mt-4 flex flex-wrap gap-2 text-sm text-zinc-300">
-            <span className="rounded-full border border-zinc-800 bg-zinc-900/80 px-3 py-1.5">
+          <div className="flex flex-wrap gap-2 text-sm">
+            <span className="app-pill-neutral rounded-full px-3 py-1.5">
               Son 7 gün: {weeklyProgress.minutesLast7Days} dk
             </span>
-            <span className="rounded-full border border-zinc-800 bg-zinc-900/80 px-3 py-1.5">
+            <span className="app-pill-neutral rounded-full px-3 py-1.5">
               Oturum: {weeklyProgress.sessionsLast7Days}
             </span>
-            <span className="rounded-full border border-zinc-800 bg-zinc-900/80 px-3 py-1.5">
+            <span className="app-pill-neutral rounded-full px-3 py-1.5">
               Öne çıkan: {weeklyProgress.mostPracticedCategory ?? "-"}
             </span>
           </div>
+        </div>
+
+        <div className="app-surface-muted rounded-[1.5rem] p-4">
+          <p className="app-text-muted text-[11px] font-medium uppercase tracking-[0.2em]">
+            Focus note
+          </p>
+          <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
+            {todaySummary}
+          </p>
+
+          {lastSession ? (
+            <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="app-text-muted text-xs">Son oturum</p>
+                <p className="mt-1 text-sm font-medium text-[var(--text-primary)]">
+                  {lastSession.focus} • {lastSession.totalMinutes} dk
+                </p>
+              </div>
+              <button
+                onClick={onContinueLast}
+                className="app-btn-secondary rounded-xl px-3 py-2 text-xs font-medium transition hover:border-[var(--border-strong)]"
+              >
+                Son oturumdan başla
+              </button>
+            </div>
+          ) : (
+            <div className="app-surface-muted app-text-muted mt-4 rounded-2xl border-dashed px-4 py-3 text-sm">
+              İlk kayıttan sonra burada hızlı bir devam kısayolu görünecek.
+            </div>
+          )}
         </div>
       </div>
     </section>

@@ -161,20 +161,46 @@ test("saves a completed session, updates summary and history, and clears correct
   assert.equal(minutesInput.value, "27");
   await user.click(view.getByRole("button", { name: "Tamamlandı olarak kaydet" }));
 
-  const pageTextAfterSave = document.body.textContent ?? "";
+  assert.match(document.body.textContent ?? "", /Henüz plan oluşturulmadı\./);
 
-  assert.match(pageTextAfterSave, /Toplam oturum\s*1/);
-  assert.match(pageTextAfterSave, /Toplam süre\s*27 dk/);
-  assert.match(pageTextAfterSave, /Son oturumlar/);
-  assert.match(pageTextAfterSave, /27 dk • Teori/);
-  assert.match(pageTextAfterSave, /Henüz plan oluşturulmadı\./);
+  await user.click(view.getByRole("button", { name: "Progress" }));
 
+  const progressTextAfterSave = document.body.textContent ?? "";
+
+  assert.match(progressTextAfterSave, /Toplam oturum\s*1/);
+  assert.match(progressTextAfterSave, /Toplam süre\s*27 dk/);
+  assert.match(progressTextAfterSave, /Denge ihtiyacı\s*Teknik/);
+
+  await user.click(view.getByRole("button", { name: "History" }));
+  assert.match(document.body.textContent ?? "", /27 dk • Teori/);
+
+  await user.click(view.getByRole("button", { name: "Progress" }));
   await user.click(view.getByRole("button", { name: "Kayıtları temizle" }));
 
-  const pageTextAfterClear = document.body.textContent ?? "";
+  const progressTextAfterClear = document.body.textContent ?? "";
 
-  assert.match(pageTextAfterClear, /Toplam oturum\s*0/);
-  assert.match(pageTextAfterClear, /Toplam süre\s*0 dk/);
-  assert.match(pageTextAfterClear, /Denge ihtiyacı\s*-/);
-  assert.match(pageTextAfterClear, /Henüz kayıt yok\./);
+  assert.match(progressTextAfterClear, /Toplam oturum\s*0/);
+  assert.match(progressTextAfterClear, /Toplam süre\s*0 dk/);
+  assert.match(progressTextAfterClear, /Denge ihtiyacı\s*-/);
+
+  await user.click(view.getByRole("button", { name: "History" }));
+  assert.match(document.body.textContent ?? "", /Henüz kayıt yok\./);
+});
+
+test("persists theme selection and opens the chord finder workspace", async () => {
+  const view = await renderHome();
+  const user = userEvent.setup({ document: window.document });
+
+  assert.equal(document.documentElement.dataset.theme, "dark");
+
+  await user.click(view.getByRole("button", { name: "Light" }));
+
+  assert.equal(document.documentElement.dataset.theme, "light");
+  assert.equal(localStorage.getItem("guitar-practice-theme"), "light");
+
+  await user.click(view.getByRole("button", { name: "Chords" }));
+
+  assert.ok(view.getByRole("heading", { name: "Chord finder" }));
+  assert.ok(view.getByText("Chord tones"));
+  assert.match(document.body.textContent ?? "", /C Major/);
 });

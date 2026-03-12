@@ -6,23 +6,27 @@ type SessionHistoryProps = {
 
 export function SessionHistory({ sessions }: SessionHistoryProps) {
   return (
-    <div className="rounded-[2rem] border border-zinc-800 bg-zinc-900 p-6">
+    <div className="app-card rounded-[2rem] p-6">
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <p className="text-xs uppercase tracking-[0.18em] text-zinc-500">
+          <p className="app-text-muted text-[11px] uppercase tracking-[0.2em]">
             Kayıtlar
           </p>
-          <h2 className="mt-2 text-xl font-medium text-white">Son oturumlar</h2>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight text-[var(--text-primary)]">
+            History
+          </h2>
         </div>
-        <p className="text-sm text-zinc-500">
-          Kısa bir geriye bakış için son kayıtları burada tut.
+        <p className="app-text-muted text-sm">
+          Son oturumları burada tut.
         </p>
       </div>
 
       {sessions.length === 0 ? (
-        <div className="mt-5 rounded-2xl border border-dashed border-zinc-800 bg-zinc-950/80 p-5">
-          <p className="text-sm font-medium text-zinc-200">Henüz kayıt yok.</p>
-          <p className="mt-2 text-sm leading-6 text-zinc-500">
+        <div className="app-surface-muted mt-5 rounded-2xl border-dashed p-5">
+          <p className="text-sm font-medium text-[var(--text-primary)]">
+            Henüz kayıt yok.
+          </p>
+          <p className="app-text-muted mt-2 text-sm leading-6">
             Bir planı tamamladığında burada son oturumlarının kısa geçmişi
             görünecek.
           </p>
@@ -32,18 +36,22 @@ export function SessionHistory({ sessions }: SessionHistoryProps) {
           {sessions.map((session) => (
             <div
               key={session.id}
-              className="rounded-2xl border border-zinc-800 bg-zinc-950/80 p-4 text-sm"
+              className="app-surface-muted rounded-2xl p-4 text-sm"
             >
               <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="font-medium text-white">{session.focus}</p>
-                  <p className="mt-1 text-zinc-400">
+                  <p className="font-medium text-[var(--text-primary)]">
+                    {session.focus}
+                  </p>
+                  <p className="app-text-muted mt-1">
                     {session.totalMinutes} dk • {session.primaryCategory}
                   </p>
                 </div>
-                <p className="text-xs uppercase tracking-[0.14em] text-zinc-500">
-                  {session.date}
-                </p>
+                <div className="flex items-center gap-2">
+                  <span className="app-pill-neutral rounded-full px-2.5 py-1 text-[11px] uppercase tracking-[0.14em]">
+                    {session.date}
+                  </span>
+                </div>
               </div>
             </div>
           ))}
